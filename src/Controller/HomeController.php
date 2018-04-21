@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Repository\ProductRepository;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class HomeController extends Controller
 {
@@ -30,5 +31,23 @@ class HomeController extends Controller
         return $this->render('product/product.html.twig', [
             'product' => $product,
         ]);
+    }
+
+    /**
+     * @Route("/json", name="productJson")
+     */
+    public function jsonProduct(ProductRepository $productRepository)
+    {
+        $products = $productRepository->findBy([], ['name' => 'ASC']);
+
+        $data = [];
+        foreach ($products as $product) {
+            $data[] = [
+                'name' => $product->getName(),
+                'price' => $product->getPrice()
+            ];
+        }
+
+        return new JsonResponse($data);
     }
 }
