@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Basket{% endblock %}
+
+{% block body %}
+
+{% for line in basket %}
+
+    <ul>
+        <li>Name : {{ line.product.name }}</li>
+        <li>Quantity : {{ line.quantity }}</li>
+        <li>Price : {{ line.product.price|number_format(2, '.', ',') }}</li>
+        <li>SubTotal : {{ (line.product.price * line.quantity)|number_format(2, '.', ',') }}</li>
+        <li><a href="{{ path('basketRemove', {'id': line.product.id}) }}">Remove</a></li>
+    </ul>
+
+{% endfor %}
+<p><a href="{{ path('basketClear') }}">Clear basket</a></p>
+<p>Total : {{ total|number_format(2, '.', ',') }}</p>
+
+{% endblock %}

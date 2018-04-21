@@ -1,0 +1,6 @@
+<div class="col-sm-4">
+    <div class="panel panel-success">
+        <div class="panel-heading"><a href="{{ path('product', {'id': product.id}) }}">{{ product.name }}</a></div>
+        <div class="panel-footer">{{ product.price|number_format(2, '.', ',') }}</div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+Technical Test for GererSeul.
+
+How to set up without docker:
+
+prerequisite :
+- Install Composer
+- Install PHP 7
+
+git clone https://github.com/ggekos/gererseul.git
+composer install
+set the .env with your database/mailer info.
+php bin/console doctrine:database:create
+php bin/console doctrine:migrations:migrate
+php bin/console doctrine:fixtures:load
+
+(You can also use make install)
+
+To run the app :
+php bin/console server:run
+
+How to test :
+ensure that your phpunit.xml contain the env data for DATABASE_URL and MAILER_URL
+./vendor/bin/simple-phpunit
+
+Command to create product :
+php bin/console app:create-product name price
+
+admin :
+browse /admin
+You can use the user admin/admin
+
+php cs fixer :
+php php-cs-fixer-v2.phar fix ./src --rules=@Symfony
+
+Heroku :
+the procfile is defined and the nginx configuration too.
