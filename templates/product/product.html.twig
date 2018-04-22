@@ -7,7 +7,8 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="panel panel-success">
-                <div class="panel-heading"><a href="{{ path('product', {'id': product.id}) }}">{{ product.name }}</a></div>
+                <div class="panel-heading"><a href="{{ path('product', {'slug': product.slug}) }}">{{ product.name }}</a></div>
+                <div class="panel-body">{{ product.description }}</div>
                 <div class="panel-footer">{{ product.price|number_format(2, '.', ',') }}</div>
                 <div class="panel-footer">
                     <form method='POST' action='{{ path('basketAdd', {'id': product.id}) }}'>

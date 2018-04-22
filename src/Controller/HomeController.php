@@ -22,11 +22,11 @@ class HomeController extends Controller
     }
 
     /**
-     * @Route("/product/{id}", name="product")
+     * @Route("/product/{slug}", name="product")
      */
-    public function product(ProductRepository $productRepository, $id)
+    public function product(ProductRepository $productRepository, $slug)
     {
-        $product = $productRepository->findOneById($id);
+        $product = $productRepository->findOneBySlug($slug);
 
         return $this->render('product/product.html.twig', [
             'product' => $product,
@@ -44,7 +44,8 @@ class HomeController extends Controller
         foreach ($products as $product) {
             $data[] = [
                 'name' => $product->getName(),
-                'price' => $product->getPrice()
+                'price' => $product->getPrice(),
+                'description' => $product->getDescription()
             ];
         }
 

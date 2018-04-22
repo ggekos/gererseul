@@ -15,7 +15,7 @@
         <env name="APP_SECRET" value="s$cretf0rt3st" />
         <env name="SHELL_VERBOSITY" value="-1" />
         <!-- define your env variables for the test env here -->
-        <env name="DATABASE_URL" value="mysql://root:example@127.0.0.1:3306/gererseul" />
+        <env name="DATABASE_URL" value="mysql://b59f82ddcee8a1:9ec8e313@eu-cdbr-west-02.cleardb.net/heroku_36acf48021a7723" />
         <env name="MAILER_URL" value="null://localhost" />
     </php>
 

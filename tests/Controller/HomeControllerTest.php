@@ -33,7 +33,7 @@ class HomeControllerTest extends WebTestCase
         $this->assertSame(200, $client->getResponse()->getStatusCode());
 
         $name = $crawler->filterXpath('//body/div[1]/div/div/div/div[1]/a')->text();
-        $price = $crawler->filterXpath('//body/div[1]/div/div/div/div[2]')->text();
+        $price = $crawler->filterXpath('//body/div[1]/div/div/div/div[3]')->text();
 
         $this->assertContains('Product', $name);
         $this->assertRegExp('/\d+\.\d{2}/', $price);
