@@ -25,6 +25,9 @@ ensure that your phpunit.xml contain the env data for DATABASE_URL and MAILER_UR
 Command to create product :
 php bin/console app:create-product name price
 
+Command to export products in csv :
+php bin/console app:csv-export
+
 admin :
 browse /admin
 You can use the user admin/admin
